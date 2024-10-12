@@ -50,3 +50,18 @@ def create_user(event, context):
             'statusCode': 400,
             'body': json.dumps({'error': str(e)})
         }
+        
+def get_all_users(event, context):
+    logger.info("Evento ricevuto: %s", event)
+    try:
+        response = table.scan()
+        return {
+            'statusCode': 200,
+            'body': json.dumps(response)
+        }
+    except ClientError as e:
+        logger.error("Errore nel recuperare gli utenti: %s", str(e))
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': str(e)})
+        }
