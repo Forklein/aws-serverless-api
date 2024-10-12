@@ -8,6 +8,13 @@ service: aws-serverless-api
 provider:
   name: aws
   runtime: python3.12
+  iamRoleStatements:
+  - Effect: Allow
+    Action:
+      - dynamodb:PutItem
+      - dynamodb:GetItem
+      - dynamodb:Scan
+    Resource: arn:aws:dynamodb:us-east-1:585768179068:table/Users
 
 functions:
   createUser:
@@ -49,13 +56,3 @@ resources:
         ProvisionedThroughput:  # capacità della tabella
           ReadCapacityUnits: 5  # capacità di lettura provisionate
           WriteCapacityUnits: 5  # capacità di scrittura provisionate
-
-iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action:
-            - dynamodb:PutItem
-            - dynamodb:GetItem
-            - dynamodb:Scan
-          Resource: arn:aws:dynamodb:us-east-1:585768179068:table/Users
