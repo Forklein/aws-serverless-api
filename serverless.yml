@@ -16,11 +16,19 @@ functions:
       - httpApi:
           path: /users
           method: post
+
   getUserById:
     handler: handler.get_user_by_id
     events:
       - httpApi:
           path: /users/{id}
+          method: get
+
+  getAllUsers:
+    handler: handler.get_all_users
+    events:
+      - httpApi:
+          path: /users
           method: get
 
 resources:
