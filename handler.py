@@ -57,9 +57,13 @@ def get_all_users(event, context):
     try:
         response = table.scan()
         users = response.get('Items', [])
+        user_ids = []
+        for user in users:
+            user_ids.append(user['id'])
+        #Ritorno gli ids
         return {
             'statusCode': 200,
-            'body': json.dumps(users)
+            'body': json.dumps(user_ids)
         }
     except ClientError as e:
         logger.error("Errore nel recuperare gli utenti: %s", str(e))
