@@ -13,12 +13,13 @@ logger.setLevel(logging.INFO)
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('Users')
 
+#POST
 def create_user(event, context):
     logger.info("Evento ricevuto: %s", event)
     
     body = json.loads(event['body'])
 
-    # check dei dati
+    # check semplice dei dati
     if 'name' not in body or 'surname' not in body or 'email' not in body:
         return {
             'statusCode': 400,
@@ -50,7 +51,7 @@ def create_user(event, context):
             'statusCode': 400,
             'body': json.dumps({'error': str(e)})
         }
-        
+#GET     
 def get_all_users(event, context):
     logger.info("Evento ricevuto: %s", event)
     try:
@@ -62,6 +63,30 @@ def get_all_users(event, context):
         }
     except ClientError as e:
         logger.error("Errore nel recuperare gli utenti: %s", str(e))
+        return {
+            'statusCode': 400,
+            'body': json.dumps({'error': str(e)})
+        }
+#GET
+def get_user_by_id(event, context):
+    user_id = event['pathParameters']['id']
+    logger.info("Evento per cercare un utente: %s", user_id)
+    
+    try:
+        response = table.get_item(Key={'id': user_id})
+        user = response.get('Item')
+        if user:
+            return {
+                'statusCode': 200,
+                'body': json.dumps(user)
+            }
+        else:
+            return {
+                'statusCode': 404,
+                'body': json.dumps({'error': 'Utente non trovato'})
+            }
+    except ClientError as e:
+        logger.error("Errore nel recuperare un utente: %s", str(e))
         return {
             'statusCode': 400,
             'body': json.dumps({'error': str(e)})
