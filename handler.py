@@ -55,9 +55,10 @@ def get_all_users(event, context):
     logger.info("Evento ricevuto: %s", event)
     try:
         response = table.scan()
+        users = response.get('Items', [])
         return {
             'statusCode': 200,
-            'body': json.dumps(response)
+            'body': json.dumps(users)
         }
     except ClientError as e:
         logger.error("Errore nel recuperare gli utenti: %s", str(e))
