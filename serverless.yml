@@ -22,3 +22,22 @@ functions:
       - httpApi:
           path: /users/{id}
           method: get
+
+resources:
+  Resources:  # Risorse AWS
+    UsersTable:  # Nome tabella
+      Type: AWS::DynamoDB::Table  # Tabella DynamoDB
+      Properties:  # Proprietà
+        TableName: Users  # Nome tabella
+
+        AttributeDefinitions:  # attributi
+          - AttributeName: id 
+            AttributeType: S  # stringa
+        
+        KeySchema:  # Schema
+          - AttributeName: id  # Primary key
+            KeyType: HASH 
+        
+        ProvisionedThroughput:  # capacità della tabella
+          ReadCapacityUnits: 5  # capacità di lettura provisionate
+          WriteCapacityUnits: 5  # capacità di scrittura provisionate
