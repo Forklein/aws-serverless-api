@@ -12,20 +12,26 @@
    
    ```
    npm install -g serverless
+   ```
 
-3. **Inizializzazione di serverless**
+## Start
+1. **Inizializzazione di serverless**
   -Recarsi nella directory interessata, aprire il terminale come amministratore e digitare
    ```
    serverless
+   ```
+2. **Configurazioni**
   -Selezionare il template: la mia scelta è stata HTTP API on AWS utilizzando Python
   -Seguire le istruzioni a schermo: verrà creata un app su https://app.serverless.com/ dove si potranno monitorare le funzioni Lambda, visualizzare log e metriche, e gestire gli eventi mentre su aws verrà creato uno "stack".
+  -Configurare correttamente il file serverless.yml[Reference qui](https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml): In questo file nel corrente progetto è stato configurato **DYNAMOBDB**, database NO-SQL dove vengono appunto salvati gli user(ID,nome,cognome,email) definendo soltanto la chiave primaria(ID), le **Lambda Functions**, ovvero createUser, getUserById e getAllUsers che si occupano appunto di creare un utente, leggere il singolo utente e vedere tutti gli utenti(in questo esempio vengono retrivati tutti gli id degli user) e infine molto importante **iamRoleStatements**, ovvero i permessi per scrivere e leggere.
 
 ## Usage
   ```
   serverless deploy
-  -Tramite questo comando verrà deployato il progetto
+  ```
+  -Tramite questo comando verrà deployato il progetto direttamente su AWS utilizzando serverless.
+  -E' possibile anche definire l'ambiente per il deploy(ad esempio stage)
 
-```
 ### Curl
 ```
 curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
