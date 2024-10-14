@@ -17,7 +17,8 @@
   -Recarsi nella directory interessata, aprire il terminale come amministratore e digitare
    ```
    serverless
-  -Seguire le istruzioni a schermo: verrà creata un app su https://app.serverless.com/ dove si potranno monitorare le funzioni Lambda, visualizzare log e metriche, e gestire gli eventi mentre su aws verrà creato uno "stack"
+  -Selezionare il template: la mia scelta è stata HTTP API on AWS utilizzando Python
+  -Seguire le istruzioni a schermo: verrà creata un app su https://app.serverless.com/ dove si potranno monitorare le funzioni Lambda, visualizzare log e metriche, e gestire gli eventi mentre su aws verrà creato uno "stack".
 
 ## Usage
   ```
