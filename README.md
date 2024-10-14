@@ -13,6 +13,12 @@
    ```
    npm install -g serverless
    ```
+4. **File requirements.txt**
+   - Librerie utilizzate: **boto3** SDK di aws
+   
+   ```
+   pip install -r requirements.txt
+   ```
 
 ## Start
 1. **Inizializzazione di serverless**
