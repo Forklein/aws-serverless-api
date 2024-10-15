@@ -58,3 +58,5 @@ Questo endpoint serve per creare uno user
 
 ## Alcuni screen
 <img src="https://i.ibb.co/nBV0CF6/Schermata-del-2024-10-15-14-26-56.png" />
+<img src="https://i.ibb.co/nk3KrqB/Schermata-del-2024-10-15-14-29-20.png" />
+<img src="https://i.ibb.co/SVqmsfZ/Schermata-del-2024-10-15-14-31-15.png" />
