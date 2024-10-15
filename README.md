@@ -8,13 +8,13 @@
    - Versione 18.20 o superiore
 
 3. **Serverless Framework**
-   - Installazione: [Serverless Framework](https://www.serverless.com/)<br>
+   - Installazione: [Serverless Framework](https://www.serverless.com/)
    
    ```
    npm install -g serverless
    ```
 4. **File requirements.txt**
-   - Librerie utilizzate: **boto3** SDK di aws<br>
+   - Librerie utilizzate: **boto3** SDK di aws
    
    ```
    pip install -r requirements.txt
