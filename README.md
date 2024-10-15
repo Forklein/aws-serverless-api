@@ -55,3 +55,6 @@ Questo endpoint serve per retrivare le informazioni dettagliate di un singolo us
 **METHOD: POST**<br>
 **https://xxxxxxx.execute-api.us-east-1.amazonaws.com/users**<br>
 Questo endpoint serve per creare uno user
+
+## Alcuni screen
+<img src="https://i.ibb.co/nBV0CF6/Schermata-del-2024-10-15-14-26-56.png" />
